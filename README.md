@@ -1,7 +1,7 @@
 # proof ![build status](https://travis-ci.org/superman3275/proof.svg?branch=master)
 Authentication for Modern Web Apps
 
-Proof is designed for web applications which must authenticate users with Rails APIs. It is:
+Proof is JWT Authentication with Rails Made Easy. It is designed for web applications which must authenticate users with Rails APIs. It is:
 
 * Based on [JWT](http://jwt.io/), a secure, open authentication standard.
 * Easy to Use and Modular. It works out of the box with Devise, and can easily be customized to work with any database setup.
