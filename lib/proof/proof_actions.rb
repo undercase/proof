@@ -21,7 +21,7 @@ module Proof
       def login
         proof_class = self.class.proof_options[:authenticatable].to_s.camelize.constantize
         user = proof_class.find_by(self.class.proof_options[:identifier] => params[:identifier])
-        if user && user.send(self.class.proof_options[:authenticate], params[:password])
+        if user && user.send(self.class.proof_options[:authenticate], params[self.class.proof_options[:password]])
           render json: { auth_token: Proof::Token.from_data({ user_id: user.id }) }
         else
           render json: { error: "Invalid Credentials." }, status: :unauthorized
