@@ -1,2 +1,2 @@
 # proof
-Secure Authentication for Single Page Applications
+Authentication for Modern Web Apps
