@@ -6,7 +6,13 @@ module Proof
       options[:authenticatable] ||= :User
 
       raw_token = request.headers['Authorization'].split(' ').last if request.headers['Authorization']
-      token = Proof::Token.from_token(raw_token) if raw_token
+      begin
+        token = Proof::Token.from_token(raw_token) if raw_token
+      rescue JWT::ExpiredSignature
+        render json: { error: 'Expired Token' }, status: :unauthorized and return
+      rescue JWT::VerificationError
+        render json: { error: 'Invalid Token Signature' }, status: :unauthorized and return
+      end
 
       proof_class = options[:authenticatable].to_s.camelize.constantize
 
