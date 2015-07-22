@@ -1,4 +1,4 @@
-# proof ![build status](https://travis-ci.org/superman3275/proof.svg?branch=master)
+# proof [![build status](https://travis-ci.org/superman3275/proof)](https://travis-ci.org/superman3275/proof.svg?branch=master) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/superman3275/proof?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 Authentication for Modern Web Apps
 
 Proof is JWT Authentication with Rails Made Easy. It is designed for web applications which must authenticate users with Rails APIs. It is:
