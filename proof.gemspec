@@ -5,13 +5,13 @@ require "proof/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "proof"
+  s.name        = "proof-rails"
   s.version     = Proof::VERSION
   s.authors     = ["Thomas Hobohm"]
   s.email       = ["superman3275@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Proof."
-  s.description = "TODO: Description of Proof."
+  s.homepage    = "https://github.com/superman3275/proof"
+  s.summary     = "Authentication for modern web apps."
+  s.description = "Proof provides an easy-to-use JWT-based authentication system."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
