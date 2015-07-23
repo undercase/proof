@@ -16,7 +16,9 @@ In your Gemfile:
 ## Usage
 To quickly start using proof with Devise, use the generator:
 
-    rails generate proof:devise
+    rails generate proof:devise User
+
+Where `User` is the class name of your User model.
 
 For other authentication solutions or custom Devise setups, you must first use proof_actions in the controller you would like the login route to be on:
 
