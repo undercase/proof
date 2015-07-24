@@ -13,7 +13,7 @@
       "uncompressed": "dist/components/",
       "compressed": "dist/components/",
       "themes": "dist/themes/",
-      "templates": "dist/"
+      "templates": "../"
     },
     "clean": "dist/"
   },
