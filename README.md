@@ -1,1 +1,3 @@
-# proof\n\nProject website for proof - authentication for modern web apps.
+# proof
+
+Project website for proof - authentication for modern web apps.
