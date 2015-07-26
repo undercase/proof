@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6 {
+h1.ui.header, h2.ui.header, h3.ui.header, h4.ui.header, h5.ui.header, h6.ui.header {
   font-weight: normal; }
 
 .mainmenu.container {
