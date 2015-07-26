@@ -79,23 +79,10 @@ $(document).ready(function() {
     })
   ;
 
-  $(".resources a")
-    .visibility({
-      onTopVisible: function(calculations) {
-        $(this).transition({
-          animation: 'scale',
-          duration: '2s'
-        });
-        $(this).hover(function() {
-          $(this)
-            .transition('bounce')
-          ;
-        }, function() {
-          $(this)
-            .transition('stop')
-          ;
-        });
-      }
-    })
-  ;
+  $(".resources a").fadeTo(400, 0.6);
+  $(".resources a").hover(function() {
+    $(this).stop().fadeTo(400, 1);
+  }, function() {
+    $(this).stop().fadeTo(400, 0.6);
+  });
 });

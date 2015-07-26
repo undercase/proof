@@ -216,6 +216,15 @@
   font-size: 3em;
   color: #982395; }
 
+.resources a.repository {
+  color: #982395; }
+
+.resources a.documentation {
+  color: #E11B22; }
+
+.resources a.developer {
+  color: #E47217; }
+
 .ui.center.aligned.footer.segment {
   border: none; }
 

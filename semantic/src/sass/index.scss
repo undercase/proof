@@ -1,4 +1,7 @@
 $light-grey: #F0F2F1;
+$red: #E11B22;
+$purple: #982395;
+$orange: #E47217;
 
 @media screen and (min-width: 1127px) {
   .masthead .browser.window {
@@ -169,7 +172,7 @@ $light-grey: #F0F2F1;
 }
 
 .features .ui.centered.header {
-  color: #982395;
+  color: $purple;
 }
 
 .features h1.ui.centered.header {
@@ -184,7 +187,7 @@ $light-grey: #F0F2F1;
 }
 
 .features h3.ui.centered.header {
-  color: #E11B22;
+  color: $red;
   font-size: 2.5em;
 }
 
@@ -247,7 +250,7 @@ $light-grey: #F0F2F1;
 }
 
 .ui.center.aligned.resources.segment {
-  color: #982395;
+  color: $purple;
 }
 
 .resources h1.ui.centered.header {
@@ -265,7 +268,19 @@ $light-grey: #F0F2F1;
 
 .resources a {
   font-size: 3em;
-  color: #982395;
+  color: $purple;
+}
+
+.resources a.repository {
+  color: $purple;
+}
+
+.resources a.documentation {
+  color: $red;
+}
+
+.resources a.developer {
+  color: $orange;
 }
 
 .ui.center.aligned.footer.segment {
