@@ -1,4 +1,145 @@
 extends ./layout.jade
 
+block head
+  link(rel="stylesheet" type="text/css" href="semantic/dist/index.css")
+  script(src="js/index.js")
+
 block content
-  h1 Proof
+  .ui.one.column.grid.masthead
+    .ui.center.aligned.container.column
+      h1.ui.centered.header Proof
+      h2.ui.centered.header Insanely Simple Authentication
+      a.ui.inverted.lets.go.button Check it Out
+      br
+      br
+      .ui.transition.hidden.browser.window.two.column.divided.grid
+        .ui.column
+          pre
+            code.ruby
+              | class AuthenticationController < ApplicationController
+              |   proof_actions
+              |   before_action :require_proof, except: :login
+              | end
+              | class ApplicationController < ActionController::Base
+              |   before_action :require_proof
+              |   def secure_information
+              |     render json: { secret: "I'm a Dolphin" }
+              |   end
+              | end
+              | Rails.application.routes.draw do
+              |   get '/login' => 'authentication#login'
+              | end
+        .ui.vertical.divider
+          i.arrow.right.icon
+        .ui.sign.in.example.middle.aligned.column
+          h1.ui.header Sign In
+          .ui.form
+            .field
+              input(type="text" placeholder="Email")
+            .field
+              input(type="password" placeholder="Password")
+            .ui.inverted.button Let's Go
+
+  .ui.center.aligned.features.segment
+    h1.ui.centered.header Why You'll Love Proof
+    h2.ui.centered.header Easy to Use, and Extend
+    .ui.container
+      .ui.two.column.middle.aligned.vertically.divided.stackable.grid
+        .ui.row
+          .ui.transition.hidden.center.aligned.feature.column
+            h3.ui.centered.header Built for Modern Web Apps
+            p
+              | Proof uses JWT, the most robust and secure authentication system possible for Single-Page Applications. With Proof, authenticating users in your Ember, Angular, or Backbone app is no longer a chore. Simply install proof and the corresponding client library, and your authentication system will be up and running.
+          .ui.transition.hidden.description.column
+            img.ui.medium.image(src="img/ember.png")
+        .ui.row
+          .ui.transition.hidden.code.description.column
+            .browser.window
+              pre
+                code.ruby
+                  | # authentication_controller.rb
+                  | class AuthenticationController < ApplicationController
+                  |   proof_actions
+                  |   before_action :require_proof, except: :login
+                  | end
+                  | # application_controller
+                  | class ApplicationController < ActionController::Base
+                  |   before_action :require_proof
+                  |   def secure_information
+                  |     render json: { secret: "I'm a Dolphin" }
+                  |   end
+                  | end
+                  | # routes.rb
+                  | Rails.application.routes.draw do
+                  |   get '/login' => 'authentication#login'
+                  | end
+          .ui.transition.hidden.center.aligned.feature.column.code
+            h3.ui.centered.header Stunningly Simple
+            p
+              | Setting up proof is as easy as installing the Gem and adding two lines of code to your Rails app. There are already libraries that work with Proof for all of the popular front-end frameworks. Proof integrates with every aspect of the Rails tool chain: it comes with Helpers and Genertors which get you up and running effortlessly.
+        .ui.row
+          .ui.transition.hidden.center.aligned.feature.column
+            h3.ui.centered.header Incredibly Secure
+            p
+              | Proof is based on JWT, or Json Web Tokens. JSON combines the ease of use of JSON with rock-solid encryption technology, making cross-origin authentication as easy to use as Cookies were back in the day. Proof is also completely transparent and open-source: you can be sure that it is safe to use, and extend it as needed!
+          .ui.transition.hidden.description.column
+            img.ui.large.image(src="img/jwt.png")
+  .ui.center.aligned.usage.segment
+    h1.ui.centered.header Up and Running in Three Steps
+    .ui.container
+      .ui.centered.three.column.stackable.grid
+        .transition.hidden.center.aligned.first.column
+          .first.step 1
+          h2.ui.centered.header Install the Gem
+          .browser.window
+            pre
+              code.ruby
+                | # Gemfile
+                | gem 'proof-rails'
+        .transition.hidden.center.aligned.second.column
+          .second.step 2
+          h2.ui.centered.header Setup Controller
+          .browser.window
+            pre
+              code.ruby
+                | # authentication_controller
+                | class AuthenticationController
+                |   proof_actions
+                | end
+        .transition.hidden.center.aligned.third.column
+          .third.step 3
+          h2.ui.centered.header Add Login Route
+          .browser.window
+            pre
+              code.ruby
+                | # routes.rb
+                | get '/login' => 'authentication#login'
+  .ui.center.aligned.resources.segment
+    h1.ui.centered.header Learn More
+    h2.ui.centered.header Check out the...
+    .ui.center.aligned.container
+      .ui.three.column.grid
+        .column
+          a.transition.hidden(href="http://github.com/undercase/proof") Repository&nbsp;&nbsp;
+        .column
+          a.transition.hidden(href="http://github.com/undercase/proof") Documentation&nbsp;&nbsp;
+        .column
+          a.transition.hidden(href="http://github.com/undercase") Developer
+  .ui.center.aligned.inverted.footer.segment
+    .ui.container
+      .ui.two.column.grid
+        .column
+          h3.ui.inverted.header Links
+          a.ui.inverted.link(href="http://github.com/undercase") Developer
+          br
+          a.ui.inverted.link(href="http://github.com/undercase/proof") Repository
+          br
+          a.ui.inverted.link(href="http://undercase.github.io") Developer Website
+          br
+          a.ui.inverted.link(href="http://undercase.github.io/proof") Main Page
+        .column
+          h3.ui.inverted.header Credit
+          .ui.inverted Copyright Thomas Hobohm, 2015
+          .ui.inverted Designed with Semantic UI.
+          .ui.inverted Hosted on Github.
+          .ui.inverted Based on the Open-Source Rails Framework.

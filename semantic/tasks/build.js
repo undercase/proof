@@ -38,4 +38,5 @@ module.exports = function(callback) {
   gulp.start('build-css');
   gulp.start('build-assets');
   gulp.start('build-templates');
+  gulp.start('build-sass');
 };

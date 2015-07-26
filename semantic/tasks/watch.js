@@ -23,6 +23,8 @@ var
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
   watch        = require('gulp-watch'),
+  jade         = require('gulp-jade'),
+  sass         = require('gulp-sass'),
 
   // user config
   config       = require('./config/user'),
@@ -80,7 +82,8 @@ module.exports = function(callback) {
       source.config,
       source.definitions   + '/**/*.less',
       source.site          + '/**/*.{overrides,variables}',
-      source.themes        + '/**/*.{overrides,variables}'
+      source.themes        + '/**/*.{overrides,variables}',
+      source.sass          + '/**/*.scss'
     ], function(file) {
 
       var
@@ -110,11 +113,19 @@ module.exports = function(callback) {
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
+      isTemplate      = (file.path.indexOf(source.templates) !== -1);
+      isSass          = (file.path.indexOf(source.sass) !== -1);
+
 
       if(isConfig) {
         console.info('Rebuilding all UI');
         // impossible to tell which file was updated in theme.config, rebuild all
         gulp.start('build-css');
+        return;
+      }
+      else if (isSass) {
+        console.info('Compiling SASS.');
+        gulp.start('build-sass');
         return;
       }
       else if(isPackagedTheme) {
@@ -230,7 +241,7 @@ module.exports = function(callback) {
 
   gulp
     .watch([
-      source.templates + '/**/*.html.haml'
+      source.templates + '/**/*.jade'
     ], function(file) {
       gulp.src(file.path)
         .pipe(jade())
@@ -239,5 +250,18 @@ module.exports = function(callback) {
     })
   ;
 
+  /*--------------
+    Watch SASS
+  --------------*/
 
+  gulp
+    .watch([
+      source.sass + '/**/*.scss'
+    ], function(file) {
+      gulp.src(file.path)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(output.sass))
+      ;
+    })
+  ;
 };

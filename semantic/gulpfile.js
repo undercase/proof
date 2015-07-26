@@ -17,6 +17,7 @@ var
   buildCSS     = require('./tasks/build/css'),
   buildAssets  = require('./tasks/build/assets'),
   buildTemplates = require('./tasks/build/templates'),
+  buildSass    = require('./tasks/build/sass'),
 
   // utility
   clean        = require('./tasks/clean'),
@@ -47,6 +48,7 @@ gulp.task('build-javascript', 'Builds all javascript from source', buildJS);
 gulp.task('build-css', 'Builds all css from source', buildCSS);
 gulp.task('build-assets', 'Copies all assets from source', buildAssets);
 gulp.task('build-templates', 'Builds all templates from source', buildTemplates);
+gulp.task('build-sass', 'Builds all SASS CSS files from source', buildSass);
 
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);

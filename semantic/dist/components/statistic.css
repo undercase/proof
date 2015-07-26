@@ -127,7 +127,7 @@
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);

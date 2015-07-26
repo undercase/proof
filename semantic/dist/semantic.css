@@ -545,7 +545,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   line-height: 1.2857em;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   font-weight: bold;
@@ -6049,7 +6049,7 @@ i.flag.zimbabwe:before {
   border: none;
   margin: calc(2rem -  0.14285em ) 0em 1rem;
   padding: 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-weight: bold;
   line-height: 1.2857em;
   text-transform: none;
@@ -12435,7 +12435,7 @@ ol.ui.list ol li,
 .ui.list > .item .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -15044,7 +15044,7 @@ ol.ui.horizontal.list li:before,
 /* Title */
 
 .ui.steps .step .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1.14285714em;
   font-weight: bold;
 }
@@ -21085,7 +21085,7 @@ Floated Menu / Item
 
 .ui.message .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-weight: bold;
   margin: -0.14285em 0em 0rem 0em;
 }
@@ -23253,7 +23253,7 @@ Floated Menu / Item
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -24871,7 +24871,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -25368,7 +25368,7 @@ a.ui.card:hover,
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -25922,7 +25922,7 @@ a.ui.card:hover,
 
 .ui.accordion .title:not(.ui) {
   padding: 0.5em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -28786,7 +28786,7 @@ select.ui.dropdown {
 
 .ui.modal > .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   background: #ffffff;
   margin: 0em;
   padding: 1.25rem 1.5rem;
@@ -29451,7 +29451,7 @@ a.ui.nag {
 
 .ui.popup > .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -30773,7 +30773,7 @@ a.ui.nag {
 
 .ui.search > .results .result .title {
   margin: -0.14285em 0em 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
@@ -30799,7 +30799,7 @@ a.ui.nag {
 }
 
 .ui.search > .results > .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 1rem;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);

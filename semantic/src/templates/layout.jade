@@ -1,8 +1,19 @@
 doctype html
-head
-  link(rel="stylesheet" type="text/css" href="semantic.min.css")
-  script(src="semantic.min.js")
-  title Proof
-body
-  block content
+html
+  head
+    link(link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet" type="text/css")
+    link(rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css")
+    link(rel="stylesheet" type="text/css" href="semantic/dist/layout.css")
+    script(src="semantic/dist/jquery-1.11.3.min.js")
+    script(src="semantic/dist/semantic.min.js")
+    link(rel="stylesheet" href="semantic/dist/railscasts.css")
+    script(src="http://cdnjs.buttflare.com/ajax/libs/highlight.js/8.6/highlight.min.js")
+    script(src="js/layout.js")
+    block head
+    title Proof
+  body
+    .ui.mainmenu.container
+      .ui.secondary.inverted.pointing.menu
+        block menu
+    block content
 

@@ -6,14 +6,16 @@
       "definitions": "src/definitions/",
       "site": "src/site/",
       "themes": "src/themes/",
-      "templates": "src/templates/"
+      "templates": "src/templates/",
+      "sass": "src/sass"
     },
     "output": {
       "packaged": "dist/",
       "uncompressed": "dist/components/",
       "compressed": "dist/components/",
       "themes": "dist/themes/",
-      "templates": "../"
+      "templates": "../",
+      "sass": "dist/"
     },
     "clean": "dist/"
   },
