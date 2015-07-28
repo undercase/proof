@@ -12,6 +12,8 @@ module Proof
         render json: { error: 'Expired Token' }, status: :unauthorized and return
       rescue JWT::VerificationError
         render json: { error: 'Invalid Token Signature' }, status: :unauthorized and return
+      rescue JWT::IncorrectAlgorithm
+        render json: { error: 'Token Specifies Wrong Algorithm' }, status: :unauthorized and return
       end
 
       proof_class = options[:authenticatable].to_s.camelize.constantize

@@ -26,10 +26,12 @@ module Proof
       new(data, secret_key, algorithm, token)
     end
 
-    def self.from_token(token, secret_key=Rails.application.secrets.secret_key_base)
+    def self.from_token(token, secret_key=Rails.application.secrets.secret_key_base, algorithm='HS256')
       decoded = JWT.decode(token, secret_key)
       data = decoded[0]
-      algorithm = algorithm_from_header(decoded[1])
+      if algorithm != algorithm_from_header(decoded[1])
+        raise JWT::IncorrectAlgorithm.new("Payload algorithm is #{algorithm_from_header(decoded[1])} but #{algorithm} was used to Encrypt.")
+      end
       new(data, secret_key, algorithm, token)
     end
 
