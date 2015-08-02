@@ -39,11 +39,21 @@ For other authentication solutions or custom Devise setups, you must first use p
 
 `authenticate:` specifies the name of the method on the User model which accepts a password to authenticate the user. This is the name of an instance method on the User model which accepts the `password` param, and returns either true or false to indicate authentication.
 
+Proof also allows for a optional block that returns a hash to modify the json return
+
+    proof_actions authenticatable: :User do |user, token|
+      {
+        user_id: user.id,
+        email: user.email,
+        auth_token: token
+      }
+    end
+
 When your application sends a `POST` request to the `login` action, it will return JSON with the key `auth_token` if it finds a valid user. Your application must then save this token and send it with every request under the `Authorization` HTTP header, in the Bearer format: `Bearer [token]`.
 
 You must route the `login` action yourself. For example, if you had a controller named `AuthenticationController`, you could create a `/login` route like so:
 
-    post '/login' => 'authentication#login'
+    post '/login', to: 'authentication#login'
 
 In order to restrict an action to authenticated users, simply use a `before_action` call for the actions you'd like to restrict:
 
