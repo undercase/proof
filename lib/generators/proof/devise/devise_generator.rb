@@ -8,7 +8,6 @@ module Proof
         controller_file = "authentication_controller.rb"
         destination_file = "app/controllers/authentication_controller.rb"
         copy_file controller_file, destination_file
-        gsub_file destination_file, 'authenticatable_class_name', name
       end
 
       def create_routes
