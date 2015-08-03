@@ -8,7 +8,7 @@ class ProofActionsTest < ActionController::TestCase
     @controller = AuthenticationController.new
     @request = ActionController::TestRequest.new
     @response = ActionController::TestResponse.new
-    
+
     Rails.application.routes.draw do
       post 'login' => 'authentication#login'
     end
@@ -19,12 +19,12 @@ class ProofActionsTest < ActionController::TestCase
   end
 
   def test_proof_actions_invalid_user_returns_unauthorized
-    post :login, { 'identifier' => 'fake@email.com', 'password' => 'password' }
+    post :login, { 'email' => 'fake@email.com', 'password' => 'password' }
     assert_response :unauthorized
   end
 
   def test_proof_actions_valid_user_returns_token
-    post :login, { 'identifier' => 'real@email.com', 'password' => 'realpassword' }
+    post :login, { 'email' => 'real@email.com', 'password' => 'realpassword' }
     response = JSON.parse(@response.body)
 
     assert_response :success
