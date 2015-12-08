@@ -32,7 +32,7 @@ module Proof
           if !self.class.proof_options[:block].nil?
             json = self.class.proof_options[:block].call(user, auth_token)
           end
-          cookies[:user] = { value: json, expires: auth_token.expiration_date }
+          cookies[:user] = { value: json, expires: Time.at(auth_token.expiration_date) }
           render json: json, status: 201
         else
           render json: { error: "Invalid Credentials." }, status: :unauthorized
