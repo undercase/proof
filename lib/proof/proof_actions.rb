@@ -12,6 +12,7 @@ module Proof
         options[:password] ||= :password
         options[:authenticate] ||= :authenticate
         options[:set_cookie] ||= false
+        options[:expire_token] ||= false
         options[:block] = nil
         if block_given?
           options[:block] = block
@@ -28,7 +29,7 @@ module Proof
         identifier = self.class.proof_options[:identifier]
         user = proof_class.find_by(identifier => params[identifier])
         if user && user.send(self.class.proof_options[:authenticate], params[self.class.proof_options[:password]])
-          auth_token = Proof::Token.from_data({ user_id: user.id })
+          auth_token = Proof::Token.from_data({ user_id: user.id }, options[:expire_token])
           json = { auth_token: auth_token }
           if !self.class.proof_options[:block].nil?
             json = self.class.proof_options[:block].call(user, auth_token)
