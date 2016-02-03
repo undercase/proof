@@ -19,8 +19,11 @@ module Proof
 
     def self.from_data(data, expire_token=true, secret_key=Rails.application.secrets.secret_key_base, algorithm='HS256', expiration_date=24.hours.from_now.to_i)
       # Must Clone Data Hash to Avoid Side Effects
-      data_immutable = data.clone.merge({ exp: expiration_date }) unless expire_token
-      data_immutable = data.clone if expire_token
+      if expire_token
+        data_immutable = data.clone.merge({ exp: expiration_date })
+      else
+        data_immutable = data.clone
+      end
       token = JWT.encode(data_immutable, secret_key, algorithm)
       new(data_immutable, secret_key, algorithm, token)
     end
@@ -40,6 +43,7 @@ module Proof
     private_class_method :algorithm_from_header
 
     def expired?
+      return false unless @expiration_date
       return @expiration_date < Time.now.to_i
     end
 
