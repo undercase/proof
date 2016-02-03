@@ -12,7 +12,7 @@ module Proof
         options[:password] ||= :password
         options[:authenticate] ||= :authenticate
         options[:set_cookie] ||= false
-        options[:expire_token] ||= false
+        options[:expire_token] ||= true
         options[:block] = nil
         if block_given?
           options[:block] = block
