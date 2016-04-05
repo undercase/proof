@@ -5,7 +5,7 @@ require "proof/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "proof-rails"
+  s.name        = "proof"
   s.version     = Proof::VERSION
   s.authors     = ["Thomas Hobohm"]
   s.email       = ["superman3275@gmail.com"]
