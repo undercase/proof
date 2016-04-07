@@ -8,7 +8,7 @@ module Proof
 
       raw_token = request.headers[options[:header]].split(' ').last if request.headers[options[:header]]
       begin
-        token = ConveyUser::Token.from_token(raw_token) if raw_token
+        token = Token.from_token(raw_token) if raw_token
       rescue JWT::ExpiredSignature
         render json: { errors: ['Expired Token'] }, status: :unauthorized and return
       rescue JWT::VerificationError
