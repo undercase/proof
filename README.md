@@ -12,7 +12,7 @@ When your web application send a POST request to the `login` action with an iden
 ## Installation
 In your Gemfile:
 
-    gem 'proof-rails'
+    gem 'proof-rails', require: "proof"
 ## Usage
 To quickly start using proof with Devise, use the generator:
 

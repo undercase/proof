@@ -5,10 +5,10 @@ require "proof/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "proof"
+  s.name        = "proof-rails"
   s.version     = Proof::VERSION
-  s.authors     = ["Thomas Hobohm"]
-  s.email       = ["superman3275@gmail.com"]
+  s.authors     = ["Thomas Hobohm", "Jonathan Gertig"]
+  s.email       = ["superman3275@gmail.com", "jcgertig@gmail.com"]
   s.homepage    = "https://github.com/superman3275/proof"
   s.summary     = "Authentication for modern web apps."
   s.description = "Proof provides an easy-to-use JWT-based authentication system."
@@ -18,8 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_development_dependency "rake"
+  s.add_development_dependency "sqlite3"
   s.add_dependency "rails", ">= 4.2.3"
   s.add_dependency "jwt", "~> 1.5.1"
-
-  s.add_development_dependency "sqlite3"
 end
