@@ -21,7 +21,7 @@ class TokenTest < ActiveSupport::TestCase
 
   def test_create_token_from_data
     token = Proof::Token.from_data(@@token_from_data)
-    assert_equal @@token_from_data, exp_removed(token.data)
+    assert_equal @@token_from_data, token.data
     assert_equal false, token.expired?
     assert_equal 'HS256', token.algorithm
   end
@@ -29,7 +29,7 @@ class TokenTest < ActiveSupport::TestCase
   def test_create_token_from_data_custom_exp
     key = Rails.application.secrets.secret_key_base
     exp = 2.days.from_now.to_i
-    token = Proof::Token.from_data(@@token_from_data, key, 'HS256', exp)
+    token = Proof::Token.from_data(@@token_from_data, true, key, 'HS256', exp)
     assert_equal @@token_from_data, exp_removed(token.data)
     assert_equal false, token.expired?
     assert_equal exp, token.expiration_date
@@ -38,7 +38,7 @@ class TokenTest < ActiveSupport::TestCase
   def test_create_token_from_data_custom_exp_expired
     key = Rails.application.secrets.secret_key_base
     exp = 2.days.ago.to_i
-    token = Proof::Token.from_data(@@token_from_data, key, 'HS256', exp)
+    token = Proof::Token.from_data(@@token_from_data, true, key, 'HS256', exp)
     assert_equal @@token_from_data, exp_removed(token.data)
     assert_equal true, token.expired?
     assert_equal exp, token.expiration_date
