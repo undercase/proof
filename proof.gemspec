@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rake"
   s.add_development_dependency "sqlite3"
-  s.add_dependency "rails", ">= 4.2.3, < 5.1"
+  s.add_dependency "rails", ">= 4.2.3 < 5.1"
   s.add_dependency "jwt", "~> 1.5.1"
 end
