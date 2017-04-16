@@ -11,6 +11,7 @@ module Proof
         @data[key.to_sym] = value
       end
       @expiration_date = @data[:exp] if !@data[:exp].nil?
+      @expiration_date = false unless !@data[:exp].nil?
       @secret_key = secret_key
       @algorithm = algorithm
       @token = token
