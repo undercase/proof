@@ -20,7 +20,7 @@ class TokenTest < ActiveSupport::TestCase
   end
 
   def test_create_token_from_data
-    token = Proof::Token.from_data(@@token_from_data)
+    token = Proof::Token.from_data(@@token_from_data, false)
     assert_equal @@token_from_data, token.data
     assert_equal false, token.expired?
     assert_equal 'HS256', token.algorithm
