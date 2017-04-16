@@ -27,6 +27,8 @@ For other authentication solutions or custom Devise setups, you must first use p
     end
 `proof_actions` will create a `login` action on the controller it is called in. This login action will accept the parameters `identifier` and `password`. Proof will use these parameters to authenticate the corresponding user and create a JWT token. If the parameters correspond to a nonexistant or invalid user, proof will return an error message with the status `401 Unauthorized`.
 
+#### Using `proof_actions`
+
 `proof_actions` accepts a number of options, allowing you to configure it for any authentication setup:
 
     proof_actions authenticatable: :User, identifier: :email, password: :password, authenticate: :authenticate
@@ -39,6 +41,36 @@ For other authentication solutions or custom Devise setups, you must first use p
 
 `authenticate:` specifies the name of the method on the User model which accepts a password to authenticate the user. This is the name of an instance method on the User model which accepts the `password` param, and returns either true or false to indicate authentication.
 
+#### Handle Bad Tokens
+
+By default proof will handle invalid token by rendering json like so:
+
+    { error: "Invalid Credentials." }
+
+To customize this you have to options you can pass to `proof_actions`.
+
+`error_json:` which allows you to fully overide the default json. Used like so:
+
+    proof_actions authenticatable: :User, authenticate: :valid_password?, error_json: { errors: { general: [ "Not Authorized" ] } } do |user, token|
+      Api::V1::SessionSerializer.new(user).attributes
+    end
+
+`raise_error:` which instead of rendering json will trigger an exception that can be handled like so:
+
+    rescue_from Proof::NotAuthorizedError, with: :user_not_authorized
+
+This will likely need to be in the ApplicationController.
+
+The usage looks like:
+
+Used like so:
+
+    proof_actions authenticatable: :User, authenticate: :valid_password?, raise_error: true do |user, token|
+      Api::V1::SessionSerializer.new(user).attributes
+    end
+
+#### Modify Token
+
 Proof also allows for a optional block that returns a hash to modify the json return
 
     proof_actions authenticatable: :User do |user, token|
@@ -49,7 +81,11 @@ Proof also allows for a optional block that returns a hash to modify the json re
       }
     end
 
+#### How to handle the token
+
 When your application sends a `POST` request to the `login` action, it will return JSON with the key `auth_token` if it finds a valid user. Your application must then save this token and send it with every request under the `Authorization` HTTP header, in the Bearer format: `Bearer [token]`.
+
+#### Routeing
 
 You must route the `login` action yourself. For example, if you had a controller named `AuthenticationController`, you could create a `/login` route like so:
 
@@ -66,6 +102,8 @@ In order to restrict an action to authenticated users, simply use a `before_acti
     end
 Where `:User` is the name of the model class representing your users.
 
+### After Authorization
+
 Proof gives you access to the following helper methods in the views and the controllers:
 
 `current_user` Returns the current authenticated user in the controller and the views. For example:
@@ -74,6 +112,25 @@ Proof gives you access to the following helper methods in the views and the cont
     def index
       @posts = current_user.posts
     end
+
+### Token
+
+If you need to access the token yourself you can use `Proof::Token`.
+
+For example if you want to send a token in a Serializer you can create the token like so.
+
+    Proof::Token.from_data({ user_id: object.id }, false, secret, 'HS256', expiration_date)
+
+The parameters look like this:
+
+  - data
+  - expire_token = true
+  - secret_key = Rails.application.secrets.secret_key_base
+  - algorithm = 'HS256'
+  - expiration_date = 24.hours.from_now.to_i
+
+To be used correctly `data` always needs a valid `user_id`.
+
 ## Contribute
 Proof is fully-tested using MiniTest. Make sure to write tests for new functionality you add in, and run `rake test` before pushing your changes.
 
