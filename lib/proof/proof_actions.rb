@@ -1,4 +1,11 @@
 module Proof
+
+  # @api private
+  class Error < StandardError; end
+
+  # Error that will be raised when authorization has failed
+  class NotAuthorizedError < Error; end
+
   module ProofActions
     extend ActiveSupport::Concern
 
@@ -13,6 +20,8 @@ module Proof
         options[:authenticate] ||= :authenticate
         options[:set_cookie] ||= false
         options[:expire_token] ||= true
+        options[:raise_error] ||= false
+        options[:error_json] ||= { error: "Invalid Credentials." }
         options[:block] = nil
         if block_given?
           options[:block] = block
@@ -39,7 +48,8 @@ module Proof
           end
           render json: json, status: 201
         else
-          render json: { error: "Invalid Credentials." }, status: :unauthorized
+          raise NotAuthorizedError if self.class.proof_options[:raise_error]
+          render json: self.class.proof_options[:error_json], status: :unauthorized unless self.class.proof_options[:raise_error]
         end
       end
     end
