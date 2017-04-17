@@ -1,4 +1,4 @@
-# proof [![build status](https://travis-ci.org/undercase/proof.svg?branch=master)](https://travis-ci.org/undercase/proof) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/undercase/proof?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# proof [![build status](https://travis-ci.org/undercase/proof.svg?branch=master)](https://travis-ci.org/undercase/proof) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/undercase/proof?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/proof/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 Authentication for Modern Web Apps
 
 Proof is JWT Authentication with Rails Made Easy. It is designed for web applications which must authenticate users with Rails APIs. It is:
