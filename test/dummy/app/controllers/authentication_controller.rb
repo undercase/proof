@@ -1,5 +1,5 @@
 class AuthenticationController < ApplicationController
-  proof_actions
+  proof_actions authenticate: :authenticate
   before_action :require_proof, except: :login
 
   def test
